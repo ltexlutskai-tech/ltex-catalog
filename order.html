@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення замовлення | L-TEX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .order-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        .form-content {
+            padding: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+        .form-group input[readonly] {
+            background: #f8f9fa;
+            cursor: not-allowed;
+        }
+        .required {
+            color: #dc3545;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #218838;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        .success-message.show {
+            display: block;
+        }
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .success-message h2 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        .success-message p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .back-btn:hover {
+            background: #218838;
+        }
+        .footer-note {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .form-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <div class="header">
+            <h1>🛒 Оформлення замовлення</h1>
+            <p>L-TEX | Секонд-хенд з Європи</p>
+        </div>
+
+        <div class="form-content" id="orderForm">
+            <form id="contactForm" action="https://formsubmit.co/ltex.lutsk.ai@gmail.com" method="POST">
+                <!-- FormSubmit налаштування -->
+                <input type="hidden" name="_subject" value="Нове замовлення з каталогу L-TEX">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_autoresponse" value="">
+                <input type="text" name="_honey" style="display:none">
+
+                <div class="form-group">
+                    <label for="fullname">ПІБ <span class="required">*</span></label>
+                    <input type="text" id="fullname" name="ПІБ" required placeholder="Введіть ваше прізвище, ім'я та по батькові">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="Телефон" required placeholder="+380 XX XXX XX XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Місто <span class="required">*</span></label>
+                    <input type="text" id="city" name="Місто" required placeholder="Введіть ваше місто">
+                </div>
+
+                <div class="form-group">
+                    <label for="product">Назва товару</label>
+                    <input type="text" id="product" name="Товар" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="barcode">Штрихкод</label>
+                    <input type="text" id="barcode" name="Штрихкод" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Коментар (необов'язково)</label>
+                    <textarea id="comment" name="Коментар" rows="4" placeholder="Додайте коментар до замовлення..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">📤 ВІДПРАВИТИ ЗАМОВЛЕННЯ</button>
+            </form>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            <div class="success-icon">✅</div>
+            <h2>Замовлення відправлено!</h2>
+            <p>Наш менеджер зв'яжеться з вами найближчим часом</p>
+            <a href="catalog.html" class="back-btn">← Повернутися до каталогу</a>
+        </div>
+
+        <div class="footer-note">
+            📞 За питаннями телефонуйте: <strong>+380 67 671 05 16</strong> або <strong>+380 99 358 49 92</strong>
+        </div>
+    </div>
+
+    <script>
+        // Отримання параметрів з URL
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            const barcode = urlParams.get('barcode');
+            
+            if (product) {
+                document.getElementById('product').value = decodeURIComponent(product);
+            }
+            if (barcode) {
+                document.getElementById('barcode').value = decodeURIComponent(barcode);
+            }
+        });
+
+        // Відправка форми через AJAX
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('.submit-btn');
+            
+            // Вимикаємо кнопку під час відправки
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Відправка...';
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Показуємо повідомлення про успіх
+                    document.getElementById('orderForm').style.display = 'none';
+                    document.getElementById('successMessage').classList.add('show');
+                } else {
+                    throw new Error('Помилка відправки');
+                }
+            })
+            .catch(error => {
+                alert('Помилка відправки замовлення. Спробуйте ще раз або зателефонуйте нам.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📤 ВІДПРАВИТИ ЗАМОВЛЕННЯ';
+            });
+        });
+    </script>
+</body>
+</html>
