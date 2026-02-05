@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товарів L-TEX | Зимовий мікс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .contacts {
+            font-size: 1.2em;
+            color: #20c997;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .product-title {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .product-details {
+            padding: 25px;
+        }
+
+        .details-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .details-table td {
+            padding: 10px 5px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .details-table td:first-child {
+            color: #666;
+            font-weight: 500;
+            width: 50%;
+        }
+
+        .details-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+        }
+
+        .total-price {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .barcode {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+        }
+
+        .footer {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .footer strong {
+            color: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .total-price {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 L-TEX</h1>
+        <p>Секонд-хенд з Європи | Оптова торгівля</p>
+        <div class="contacts">
+            📲 +380 67 671 05 16<br>
+            📲 +380 99 358 49 92
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="product-grid">
+            
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Флісові кофти мікс зима Екстра (0223)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/LUfA0wUWXrs" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Екстра</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>32 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>0,47 кг</td></tr>
+                        <tr><td>Загальна вага:</td><td>15,3 кг</td></tr>
+                        <tr><td>Ціна за кг:</td><td>6,90 €/кг</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">5 447,41 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 42386647</div>
+                    <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%280223%29&barcode=42386647" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Флісові кофти мікс зима Екстра (0223)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/iKos7Cg-GC4" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Екстра</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>35 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>0,43 кг</td></tr>
+                        <tr><td>Загальна вага:</td><td>15,1 кг</td></tr>
+                        <tr><td>Ціна за кг:</td><td>6,90 €/кг</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">5 376,20 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 42401131</div>
+                    <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%280223%29&barcode=42401131" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс демісезон Reebok Сток (1159)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/VRN2yd23ihs" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Загальна кількість:</td><td>20 шт</td></tr>
+                        <tr><td>Ціна за шт:</td><td>25,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">25 800,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000200271642</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20Reebok%20%D0%A1%D1%82%D0%BE%D0%BA%20%281159%29&barcode=2000200271642" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс демісезон Reebok Сток (1159)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/7kcJ1Ow7ah4" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>25 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Загальна кількість:</td><td>25 шт</td></tr>
+                        <tr><td>Ціна за шт:</td><td>25,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">32 250,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000250304420</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20Reebok%20%D0%A1%D1%82%D0%BE%D0%BA%20%281159%29&barcode=2000250304420" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>📍 Адреса складу:</strong> м. Луцьк, Волинська область, Україна</p>
+        <p><strong>🕒 Графік роботи:</strong> Пн-Пт: 9:00-18:00 | Сб-Нд: за домовленістю</p>
+        <p><strong>📧 Email:</strong> ltex.lutsk.ai@gmail.com</p>
+        <p><strong>📲 Телефони:</strong> +380 67 671 05 16, +380 99 358 49 92</p>
+    </div>
+</body>
+</html>
