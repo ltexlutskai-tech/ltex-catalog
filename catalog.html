@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товарів L-TEX | Bric a Brac</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .header p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+        .contacts {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        .contacts a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .product-title {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-bottom: 3px solid #28a745;
+        }
+        .product-title h2 {
+            font-size: 1.3rem;
+            color: #28a745;
+            font-weight: 700;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .product-details {
+            padding: 1.5rem;
+        }
+        .details-table {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .details-table tr {
+            border-bottom: 1px solid #e9ecef;
+        }
+        .details-table td {
+            padding: 0.7rem 0;
+        }
+        .details-table td:first-child {
+            color: #6c757d;
+            font-weight: 600;
+            width: 45%;
+        }
+        .details-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: #333;
+        }
+        .price-highlight {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .price-highlight .total-price {
+            font-size: 1.8rem;
+            color: #28a745;
+            font-weight: 800;
+        }
+        .barcode {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+        .buy-btn:hover {
+            background: #218838;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 3px solid #28a745;
+        }
+        .footer p {
+            margin: 0.5rem 0;
+            color: #6c757d;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .contacts a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 L-TEX</h1>
+        <p>Секонд-хенд з Європи | Оптова торгівля</p>
+        <div class="contacts">
+            📲 <a href="tel:+380676710516">+380 67 671 05 16</a>
+            📲 <a href="tel:+380993584992">+380 99 358 49 92</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="product-grid">
+            
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1701)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KPt8Ig0UxlE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>93 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,22 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>21,2 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,60 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">3 938,11 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000212396920</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1701)%20-%2093шт&barcode=2000212396920" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1701)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/YWBUP-yE0oQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>87 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,24 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>21 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,60 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">3 900,96 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000210392115</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1701)%20-%2087шт&barcode=2000210392115" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1701)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/lNMRo75g89U" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>57 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,31 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>18 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,60 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">3 343,68 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000180391965</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1701)%20-%2057шт&barcode=2000180391965" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1701)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/PNg4DcLi9Ok" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>36 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,46 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>16,8 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,60 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">3 120,77 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000168364561</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1701)%20-%2036шт&barcode=2000168364561" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac C2R Товари для дому, офісу, іграшки, порцеляна (1794)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/EcBLn2MgPvE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>85 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,26 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>22,7 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,40 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">3 982,49 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000227391903</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20C2R%20(1794)%20-%2085шт&barcode=2000227391903" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1191)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/GQntvFgjYm4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>58 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,34 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>20,1 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,40 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">3 526,34 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000201386710</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1191)%20-%2058шт&barcode=2000201386710" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 7 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1191)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/1IesZIlVAiM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>96 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,23 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>22,9 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,40 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">4 017,58 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000229380004</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1191)%20-%2096шт&barcode=2000229380004" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 8 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1191)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/wxmmNY4FnhM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>95 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,26 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>25,3 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,40 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">4 438,63 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000253382289</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1191)%20-%2095шт&barcode=2000253382289" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 9 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1191)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/HECQliId93o" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>109 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,29 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>32,5 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,40 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">5 701,80 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000325381257</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1191)%20-%20109шт&barcode=2000325381257" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 10 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Bric a Brac Товари для дому, офісу, іграшки, порцеляна (1191)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/_08EQ7Bv-3o" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr>
+                            <td>Сорт:</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Кількість одиниць:</td>
+                            <td>35 шт</td>
+                        </tr>
+                        <tr>
+                            <td>Вага одиниці:</td>
+                            <td>0,4 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Загальна вага:</td>
+                            <td>14 кг</td>
+                        </tr>
+                        <tr>
+                            <td>Ціна за кг:</td>
+                            <td>3,40 €/кг</td>
+                        </tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">2 456,16 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000140357963</div>
+                    <a href="order.html?product=Bric%20a%20Brac%20(1191)%20-%2035шт&barcode=2000140357963" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>📍 Адреса складу:</strong> м. Луцьк, Волинська область, Україна</p>
+        <p><strong>🕒 Графік роботи:</strong> Пн-Пт: 9:00-18:00 | Сб-Нд: за домовленістю</p>
+        <p><strong>📧 Email:</strong> taraskuzenko.ltex@gmail.com</p>
+        <p style="margin-top: 1rem; color: #adb5bd;">© 2025 L-TEX. Всі права захищені.</p>
+    </div>
+</body>
+</html>
