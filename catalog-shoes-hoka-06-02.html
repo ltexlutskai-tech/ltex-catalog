@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товарів L-TEX | Кросівки HOKA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #28a745;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .contacts {
+            font-size: 1.1em;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-title {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title h2 {
+            font-size: 1.3em;
+            line-height: 1.4;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .product-details {
+            padding: 25px;
+        }
+
+        .details-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .details-table tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .details-table td {
+            padding: 12px 0;
+            font-size: 1em;
+        }
+
+        .details-table td:first-child {
+            color: #666;
+            font-weight: 600;
+            width: 50%;
+        }
+
+        .details-table td:last-child {
+            color: #333;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(255,215,0,0.3);
+        }
+
+        .total-price {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .barcode {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+
+        .buy-btn {
+            display: block;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(40,167,69,0.3);
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(40,167,69,0.5);
+        }
+
+        .footer {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .total-price {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 L-TEX</h1>
+        <p>Секонд-хенд з Європи | Оптова торгівля</p>
+        <div class="contacts">
+            📲 +380 67 671 05 16 &nbsp;&nbsp;&nbsp; 📲 +380 99 358 49 92
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="product-grid">
+            
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (нові) (1293)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/CmK_ozoxj0I" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>14 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>41,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">29 618,40 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000140372478</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%BD%D0%BE%D0%B2%D1%96%29%20%281293%29&barcode=2000140372478" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (нові) (1293)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/2uY3Cw1vVt0" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>15 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>41,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">31 734,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000150369390</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%BD%D0%BE%D0%B2%D1%96%29%20%281293%29&barcode=2000150369390" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (примірка, нові, легке б/у) (1321)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/0bfDUPqmg0w" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>15 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>32,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">24 768,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000150358998</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%BF%D1%80%D0%B8%D0%BC%D1%96%D1%80%D0%BA%D0%B0%2C%20%D0%BD%D0%BE%D0%B2%D1%96%2C%20%D0%BB%D0%B5%D0%B3%D0%BA%D0%B5%20%D0%B1%2F%D1%83%29%20%281321%29&barcode=2000150358998" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон HOKA (б/у) (1347)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/X0Scxt08218" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>23,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">23 736,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000200396628</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20HOKA%20%28%D0%B1%2F%D1%83%29%20%281347%29&barcode=2000200396628" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки, черевики Hoka ANACAPA, зима сток (1849)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/RJAVwKbVCIE" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>19 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>55,00 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">53 922,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000190390927</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%2C%20%D1%87%D0%B5%D1%80%D0%B5%D0%B2%D0%B8%D0%BA%D0%B8%20Hoka%20ANACAPA%2C%20%D0%B7%D0%B8%D0%BC%D0%B0%20%D1%81%D1%82%D0%BE%D0%BA%20%281849%29&barcode=2000190390927" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (б/у + ремонт) (1386)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/awemK4P3mOQ" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>10,50 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">10 836,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000200397847</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%B1%2F%D1%83%20%2B%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%29%20%281386%29&barcode=2000200397847" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 7 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (б/у + ремонт) (1386)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/lOGqL3YpwHg" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>10,50 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">10 836,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000200397816</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%B1%2F%D1%83%20%2B%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%29%20%281386%29&barcode=2000200397816" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 8 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (б/у + ремонт) (1386)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZDha_SiTrVo" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>10,50 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">10 836,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000200397007</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%B1%2F%D1%83%20%2B%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%29%20%281386%29&barcode=2000200397007" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+            <!-- Товар 9 -->
+            <div class="product-card">
+                <div class="product-title">
+                    <h2>Кросівки мікс нові демісезон сток HOKA (б/у + ремонт) (1386)</h2>
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/iuSu1GsxzRk" allowfullscreen></iframe>
+                </div>
+                <div class="product-details">
+                    <table class="details-table">
+                        <tr><td>Сорт:</td><td>Сток</td></tr>
+                        <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                        <tr><td>Вага одиниці:</td><td>—</td></tr>
+                        <tr><td>Ціна за одиницю:</td><td>10,50 €/шт</td></tr>
+                    </table>
+                    <div class="price-highlight">
+                        <div class="total-price">10 836,00 грн</div>
+                    </div>
+                    <div class="barcode">Штрихкод: 2000200397168</div>
+                    <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%28%D0%B1%2F%D1%83%20%2B%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%29%20%281386%29&barcode=2000200397168" class="buy-btn">🛒 КУПИТИ</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>📍 Адреса складу:</strong> м. Луцьк, Волинська область, Україна</p>
+        <p><strong>🕒 Графік роботи:</strong> Пн-Пт: 9:00-18:00 | Сб-Нд: за домовленістю</p>
+        <p><strong>📧 Email:</strong> ltex.lutsk.ai@gmail.com</p>
+    </div>
+</body>
+</html>
