@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товарів L-TEX | Мікс асортимент</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contacts {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .contacts span {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-title {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product-title h2 {
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .sale-badge {
+            background: #dc3545;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .product-details {
+            padding: 1.5rem;
+        }
+
+        .details-table {
+            width: 100%;
+            margin-bottom: 1rem;
+            border-collapse: collapse;
+        }
+
+        .details-table tr {
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .details-table td {
+            padding: 0.5rem;
+        }
+
+        .details-table td:first-child {
+            font-weight: bold;
+            color: #28a745;
+            width: 50%;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .total-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .barcode {
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .buy-btn:hover {
+            background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: #343a40;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .contacts span {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 L-TEX</h1>
+        <p>Секонд-хенд з Європи | Оптова торгівля</p>
+        <div class="contacts">
+            <span>📲 +380 67 671 05 16</span>
+            <span>📲 +380 99 358 49 92</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ВЗУТТЯ -->
+        <div class="category-section">
+            <div class="category-title">👟 ВЗУТТЯ</div>
+            <div class="product-grid">
+                <!-- Взуття 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Взуття доросле та дитяче мікс демісезон Крем (1125)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/3qaKczmwNiA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>Крем</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>29 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,8 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>23,2 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>13,90 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">16 639,97 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000232389483</div>
+                        <a href="order.html?product=%D0%92%D0%B7%D1%83%D1%82%D1%82%D1%8F%20%D0%B4%D0%BE%D1%80%D0%BE%D1%81%D0%BB%D0%B5%20%D1%82%D0%B0%20%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B5%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%9A%D1%80%D0%B5%D0%BC%20%281125%29&barcode=2000232389483" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Взуття 2 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Взуття доросле та дитяче мікс демісезон Крем (1125)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/JQ4HviI5leg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>Крем</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>29 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,77 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>22,4 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>13,90 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">16 066,18 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000224389446</div>
+                        <a href="order.html?product=%D0%92%D0%B7%D1%83%D1%82%D1%82%D1%8F%20%D0%B4%D0%BE%D1%80%D0%BE%D1%81%D0%BB%D0%B5%20%D1%82%D0%B0%20%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B5%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%9A%D1%80%D0%B5%D0%BC%20%281125%29&barcode=2000224389446" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Взуття 3 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Взуття доросле та дитяче мікс демісезон Крем (1125)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/R5yX_brrx24" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>Крем</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>25 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,74 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>18,6 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>13,90 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">13 340,66 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000186379561</div>
+                        <a href="order.html?product=%D0%92%D0%B7%D1%83%D1%82%D1%82%D1%8F%20%D0%B4%D0%BE%D1%80%D0%BE%D1%81%D0%BB%D0%B5%20%D1%82%D0%B0%20%D0%B4%D0%B8%D1%82%D1%8F%D1%87%D0%B5%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%9A%D1%80%D0%B5%D0%BC%20%281125%29&barcode=2000186379561" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Кросівки 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Кросівки мікс нові демісезон сток HOKA (б/у + ремонт) (1386)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/lOGqL3YpwHg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>Сток</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                            <tr><td>Ціна за шт:</td><td>10,50 €/шт</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">10 836,00 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000200397816</div>
+                        <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%281386%29&barcode=2000200397816" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Кросівки 2 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Кросівки мікс нові демісезон сток HOKA (б/у + ремонт) (1386)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/awemK4P3mOQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>Сток</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>20 шт</td></tr>
+                            <tr><td>Ціна за шт:</td><td>10,50 €/шт</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">10 836,00 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000200397847</div>
+                        <a href="order.html?product=%D0%9A%D1%80%D0%BE%D1%81%D1%96%D0%B2%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D1%81%D1%82%D0%BE%D0%BA%20HOKA%20%281386%29&barcode=2000200397847" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- КУРТКИ ТА ЖИЛЕТКИ -->
+        <div class="category-section">
+            <div class="category-title">🧥 КУРТКИ ТА ЖИЛЕТКИ</div>
+            <div class="product-grid">
+                <!-- Куртка 1 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Куртки мікс демісезон 1й сорт (1722)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Kv8WobyuGQ8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>29 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,68 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>20 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>5,50 €/кг</strike> → 4,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">5 676,00 грн</div>
+                            <div class="total-price">4 747,20 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000200368687</div>
+                        <a href="order.html?product=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281722%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000200368687" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Куртка 2 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Куртки мікс демісезон 1й сорт (1722)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Uili4_kDo18" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>26 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,76 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>19,8 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>5,50 €/кг</strike> → 4,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">5 619,24 грн</div>
+                            <div class="total-price">4 699,73 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000198353085</div>
+                        <a href="order.html?product=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281722%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000198353085" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Куртка 3 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Куртки мікс, фліс 1й сорт Зима, Англія ТТ (1801)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/aNdDZ7MnOz8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>24 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,64 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>15,5 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>4,10 €/кг</strike> → 3,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">3 279,18 грн</div>
+                            <div class="total-price">2 879,28 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000155369685</div>
+                        <a href="order.html?product=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D1%84%D0%BB%D1%96%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%97%D0%B8%D0%BC%D0%B0%20%D0%90%D0%BD%D0%B3%D0%BB%D1%96%D1%8F%20%281801%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000155369685" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Куртка 4 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Куртки мікс, фліс 1й сорт Зима, Англія ТТ (1801)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/tY0L2KjuTgY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>24 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,62 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>14,9 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>4,10 €/кг</strike> → 3,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">3 152,24 грн</div>
+                            <div class="total-price">2 767,82 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000149369646</div>
+                        <a href="order.html?product=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D1%84%D0%BB%D1%96%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%97%D0%B8%D0%BC%D0%B0%20%D0%90%D0%BD%D0%B3%D0%BB%D1%96%D1%8F%20%281801%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000149369646" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Куртка 5 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Куртки чоловічі зима 1й сорт (0122)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/IW0OTC-Ijv4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>2-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>27 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>1,09 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>29,6 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,40 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">5 193,02 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 13103670296001003926560009</div>
+                        <a href="order.html?product=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280122%29&barcode=13103670296001003926560009" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Куртка 6 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Куртки чоловічі зима 1й сорт (0122)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/NHMNkdStfs8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>2-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>31 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,98 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>30,6 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,40 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">5 368,46 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 03103620306001004626560009</div>
+                        <a href="order.html?product=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280122%29&barcode=03103620306001004626560009" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Жилетка 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Жилетки мікс демісезон 1й сорт Німеччина D (1168)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6WjS3kdzPCM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>66 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,37 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>24,8 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>4,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">5 886,53 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000248245742</div>
+                        <a href="order.html?product=%D0%96%D0%B8%D0%BB%D0%B5%D1%82%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0%20%281168%29&barcode=2000248245742" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Жилетка 2 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Жилетки мікс демісезон 1й сорт Німеччина D (1168)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/LJmacw40KFI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>64 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,39 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>4,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">5 934,00 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 05594309</div>
+                        <a href="order.html?product=%D0%96%D0%B8%D0%BB%D0%B5%D1%82%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0%20%281168%29&barcode=05594309" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ФЛІСОВІ КОФТИ -->
+        <div class="category-section">
+            <div class="category-title">🔥 ФЛІСОВІ КОФТИ ТА СВІТШОТИ</div>
+            <div class="product-grid">
+                <!-- Фліс 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Флісові кофти мікс демісезон 2й сорт (0281)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ZyqLvuNYppk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>2-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>39 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,38 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>15,1 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>2,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">2 025,82 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 164092601510G100282006008T</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%202%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280281%29&barcode=164092601510G100282006008T" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 2 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Флісові кофти мікс зима 1й сорт (0533)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/nm--Z_qDrF4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>42 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,35 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>15 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>4,60 €/кг</strike> → 3,70 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">3 560,40 грн</div>
+                            <div class="total-price">2 863,80 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000150382214</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280533%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000150382214" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 3 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Флісові кофти мікс зима 1й сорт (0533)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/tuyeXxl0T0Q" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>32 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,46 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>15 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>4,60 €/кг</strike> → 3,70 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">3 560,40 грн</div>
+                            <div class="total-price">2 863,80 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000150382221</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280533%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000150382221" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 4 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Кофти з капюшоном, світшоти мікс 1й сорт (1807)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/4YVfI0-lQRA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>24 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,45 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>10,9 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>2,90 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">1 631,08 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000109395067</div>
+                        <a href="order.html?product=%D0%9A%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281807%29&barcode=2000109395067" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 5 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Флісові кофти на замок мікс зима 2й сорт (0098)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/4oQQXWGG7Xk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>2-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>35 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,43 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>15,3 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>3,60 €/кг</strike> → 3,20 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">2 842,13 грн</div>
+                            <div class="total-price">2 526,34 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000153269130</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280098%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000153269130" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 6 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Флісові кофти на замок мікс зима 2й сорт (0098)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/eht_cRqKKKc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>2-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>40 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,37 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>15 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>3,60 €/кг</strike> → 3,20 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">2 786,40 грн</div>
+                            <div class="total-price">2 476,80 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000150131676</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280098%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=2000150131676" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 7 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Флісові кофти на замок мікс зима 1й сорт Німеччина D (1167)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/SIt7imLrpKE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>57 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,44 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25,2 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>3,60 €/кг</strike> → 2,80 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">4 681,15 грн</div>
+                            <div class="total-price">3 640,90 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 05470872</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0%20%281167%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=05470872" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Фліс 8 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Флісові кофти на замок мікс зима 1й сорт Німеччина D (1167)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ZRZ6FhTB0kQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>61 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,41 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25,1 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>3,60 €/кг</strike> → 2,80 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">4 662,58 грн</div>
+                            <div class="total-price">3 626,45 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 05490117</div>
+                        <a href="order.html?product=%D0%A4%D0%BB%D1%96%D1%81%D0%BE%D0%B2%D1%96%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0%20%281167%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=05490117" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Світшот -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Світшоти мікс демісезон 1й сорт (0573)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/SNyghhHfi9Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>62 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,39 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>24,6 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>4,90 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">6 219,86 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000246272283</div>
+                        <a href="order.html?product=%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280573%29&barcode=2000246272283" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ШТАНИ -->
+        <div class="category-section">
+            <div class="category-title">👖 ШТАНИ СПОРТИВНІ</div>
+            <div class="product-grid">
+                <!-- Штани 1 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Штани спортивні жіночі демісезон 1й сорт (0261)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/DPfQex1o1mw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>97 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,26 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>26 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>3,90 €/кг</strike> → 2,80 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">5 232,24 грн</div>
+                            <div class="total-price">3 756,48 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 25801100260112144124120008</div>
+                        <a href="order.html?product=%D0%A8%D1%82%D0%B0%D0%BD%D0%B8%20%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D1%96%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280261%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=25801100260112144124120008" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Штани 2 АКЦІЯ -->
+                <div class="product-card">
+                    <div class="sale-badge">🟥◼ АКЦІЯ ◼🟥</div>
+                    <div class="product-title">
+                        <h2>Штани спортивні жіночі демісезон 1й сорт (0261)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/bwYUvX3XsRU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>108 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,26 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>28,8 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td><strike>3,90 €/кг</strike> → 2,80 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="old-price">5 795,71 грн</div>
+                            <div class="total-price">4 161,02 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 15801190288011577324130008</div>
+                        <a href="order.html?product=%D0%A8%D1%82%D0%B0%D0%BD%D0%B8%20%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D1%96%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280261%29%20%D0%90%D0%9A%D0%A6%D0%86%D0%AF&barcode=15801190288011577324130008" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Штани 3 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Спорт штани коттон демісезон мікс 1й сорт (1808)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/r0VHTdilLHA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>129 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,38 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>50 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>4,60 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">11 868,00 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000500385223</div>
+                        <a href="order.html?product=%D0%A1%D0%BF%D0%BE%D1%80%D1%82%20%D1%88%D1%82%D0%B0%D0%BD%D0%B8%20%D0%BA%D0%BE%D1%82%D1%82%D0%BE%D0%BD%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281808%29&barcode=2000500385223" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Штани 4 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Штани спортивні мікс демісезон 2й сорт (0645)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/S9hUHrZwmE0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>2-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>70 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,36 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25,3 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>4,10 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">5 352,47 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 05624779</div>
+                        <a href="order.html?product=%D0%A8%D1%82%D0%B0%D0%BD%D0%B8%20%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D1%96%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%202%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280645%29&barcode=05624779" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ОДЯГ (різний) -->
+        <div class="category-section">
+            <div class="category-title">👕 ОДЯГ</div>
+            <div class="product-grid">
+                <!-- Одяг жіночий -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Одяг жіночий мікс демісезон 1й сорт XXL (0658)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/4Gv2SxbqJho" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>114 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,21 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>5,40 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">6 966,00 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 07204133</div>
+                        <a href="order.html?product=%D0%9E%D0%B4%D1%8F%D0%B3%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D0%B8%D0%B9%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20XXL%20%280658%29&barcode=07204133" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Спорт одяг -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Спорт мікс одяг 1й сорт, демісезон, Німеччина (1780)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/EbS74ZvA4To" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>112 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,44 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>50 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,90 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">10 062,00 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000500353079</div>
+                        <a href="order.html?product=%D0%A1%D0%BF%D0%BE%D1%80%D1%82%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BE%D0%B4%D1%8F%D0%B3%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0%20%281780%29&barcode=2000500353079" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Дитячий одяг -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Дитячий одяг мікс демісезон, зима 1й сорт+Екстра (1820)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VXSuGUHjyNU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й + Екстра</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>166 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,15 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25,3 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>5,80 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">7 571,78 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000253366883</div>
+                        <a href="order.html?product=%D0%94%D0%B8%D1%82%D1%8F%D1%87%D0%B8%D0%B9%20%D0%BE%D0%B4%D1%8F%D0%B3%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%B7%D0%B8%D0%BC%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%281820%29&barcode=2000253366883" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Одяг чоловічий 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Одяг чоловічий літо 1й сорт XXL (0655)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/NFCsbNOpKEc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>81 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,31 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25,2 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>5,45 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">7 086,74 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 07208974</div>
+                        <a href="order.html?product=%D0%9E%D0%B4%D1%8F%D0%B3%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D0%B8%D0%B9%20%D0%BB%D1%96%D1%82%D0%BE%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20XXL%20%280655%29&barcode=07208974" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Одяг чоловічий 2 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Одяг чоловічий літо 1й сорт XXL (0655)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/1FMeyCBmgac" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>91 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,27 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>25 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>5,45 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">7 030,50 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 2000250343337</div>
+                        <a href="order.html?product=%D0%9E%D0%B4%D1%8F%D0%B3%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D0%B8%D0%B9%20%D0%BB%D1%96%D1%82%D0%BE%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20XXL%20%280655%29&barcode=2000250343337" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТЕКСТИЛЬ ТА ПОСТІЛЬ -->
+        <div class="category-section">
+            <div class="category-title">🛏️ ТЕКСТИЛЬ ТА ПОСТІЛЬ</div>
+            <div class="product-grid">
+                <!-- Постіль 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Постіль фланелева мікс 1й сорт (0227)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Sf58jHKBK_M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>40 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,53 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>21,4 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,25 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">3 588,78 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 24904870214012073124130008</div>
+                        <a href="order.html?product=%D0%9F%D0%BE%D1%81%D1%82%D1%96%D0%BB%D1%8C%20%D1%84%D0%BB%D0%B0%D0%BD%D0%B5%D0%BB%D0%B5%D0%B2%D0%B0%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280227%29&barcode=24904870214012073124130008" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Постіль 2 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Постіль фланелева мікс 1й сорт (0227)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Npe0-chZxts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>42 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,66 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>27,9 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,25 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">4 678,83 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 14904870279015308824130008</div>
+                        <a href="order.html?product=%D0%9F%D0%BE%D1%81%D1%82%D1%96%D0%BB%D1%8C%20%D1%84%D0%BB%D0%B0%D0%BD%D0%B5%D0%BB%D0%B5%D0%B2%D0%B0%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280227%29&barcode=14904870279015308824130008" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Ковдри -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Ковдри мікс 1й сорт (0015)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/MyUubYPloRE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>17 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>1,14 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>19,4 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,45 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">3 453,59 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 13707340194001003626660009</div>
+                        <a href="order.html?product=%D0%9A%D0%BE%D0%B2%D0%B4%D1%80%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280015%29&barcode=13707340194001003626660009" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Постіль Х/Б 1 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Постіль Х/Б мікс 1й сорт (0315)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/U7XKwrdCiJM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>51 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,47 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>24,2 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,40 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">4 245,65 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 1490631024200202232635008t</div>
+                        <a href="order.html?product=%D0%9F%D0%BE%D1%81%D1%82%D1%96%D0%BB%D1%8C%20%D0%A5%2F%D0%91%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280315%29&barcode=1490631024200202232635008t" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+
+                <!-- Постіль Х/Б 2 -->
+                <div class="product-card">
+                    <div class="product-title">
+                        <h2>Постіль Х/Б мікс 1й сорт (0315)</h2>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/LGf7OOeSK_o" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="product-details">
+                        <table class="details-table">
+                            <tr><td>Сорт:</td><td>1-й</td></tr>
+                            <tr><td>Кількість одиниць:</td><td>50 шт</td></tr>
+                            <tr><td>Вага одиниці:</td><td>0,52 кг</td></tr>
+                            <tr><td>Загальна вага:</td><td>26 кг</td></tr>
+                            <tr><td>Ціна за кг:</td><td>3,40 €/кг</td></tr>
+                        </table>
+                        <div class="price-highlight">
+                            <div class="total-price">4 561,44 грн</div>
+                        </div>
+                        <div class="barcode">Штрихкод: 1490634026010200762634008T</div>
+                        <a href="order.html?product=%D0%9F%D0%BE%D1%81%D1%82%D1%96%D0%BB%D1%8C%20%D0%A5%2F%D0%91%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280315%29&barcode=1490634026010200762634008T" class="buy-btn">🛒 КУПИТИ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>📍 Адреса складу:</strong> м. Луцьк, Волинська область, Україна</p>
+        <p><strong>🕒 Графік роботи:</strong> Пн-Пт: 9:00-18:00 | Сб-Нд: за домовленістю</p>
+        <p><strong>📧 Email:</strong> ltex.lutsk.ai@gmail.com</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #adb5bd;">
+            © 2025 L-TEX. Всі права захищені.
+        </p>
+    </div>
+</body>
+</html>
