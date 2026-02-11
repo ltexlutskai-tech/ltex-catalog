@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог L-TEX | Одяг мікс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #4CAF50;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 16px;
+            margin: 4px 0;
+            opacity: 0.95;
+        }
+
+        .header .contacts {
+            margin-top: 12px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header .contacts a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .category {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .category h2 {
+            font-size: 28px;
+            color: #2E7D32;
+            margin-bottom: 8px;
+        }
+
+        .category p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .category .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .category .stat-item {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .category .stat-item strong {
+            color: #2E7D32;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: #2E7D32;
+            color: white;
+        }
+
+        thead th {
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #C8E6C9;
+            transition: background 0.2s;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #F1F8E9;
+        }
+
+        tbody tr:hover {
+            background: #E8F5E9;
+        }
+
+        tbody td {
+            padding: 14px 12px;
+            vertical-align: top;
+        }
+
+        .td-num {
+            width: 50px;
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .td-name {
+            min-width: 300px;
+        }
+
+        .td-name .code {
+            font-weight: 700;
+            font-size: 16px;
+            color: #2E7D32;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .td-name .desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .td-price {
+            width: 100px;
+            text-align: right;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .td-price s {
+            color: #999;
+            font-size: 15px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .td-promo {
+            width: 100px;
+            text-align: right;
+            font-size: 18px;
+            font-weight: 700;
+            color: #E65100;
+            background: #FFF3E0;
+        }
+
+        .td-unit {
+            width: 80px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .td-youtube {
+            width: 70px;
+            text-align: center;
+        }
+
+        .td-order {
+            width: 120px;
+            text-align: center;
+        }
+
+        .yt-btn {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            background: #FF0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 20px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .yt-btn:hover {
+            background: #CC0000;
+            transform: scale(1.05);
+        }
+
+        .no-link {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        .order-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .order-btn:hover {
+            background: linear-gradient(135deg, #E65100 0%, #F57C00 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: #1B5E20;
+            color: white;
+            padding: 32px 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer .email {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 10px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .header .contacts {
+                font-size: 14px;
+                margin-top: 8px;
+            }
+
+            .header .contacts a {
+                display: block;
+                margin: 4px 0;
+            }
+
+            .category {
+                margin: 10px;
+                padding: 14px;
+            }
+
+            .category h2 {
+                font-size: 18px;
+            }
+
+            .category p {
+                font-size: 12px;
+            }
+
+            .category .stats {
+                gap: 15px;
+            }
+
+            .category .stat-item {
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            thead {
+                display: none;
+            }
+
+            table, tbody, tr, td {
+                display: block;
+            }
+
+            tbody tr {
+                background: #fff;
+                border: 2px solid #C8E6C9;
+                border-radius: 12px;
+                margin: 12px 0;
+                padding: 14px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+
+            tbody tr:hover {
+                background: #fff;
+            }
+
+            tbody td {
+                border: none;
+                padding: 4px 0;
+                text-align: left;
+            }
+
+            tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                font-size: 11px;
+                color: #888;
+                text-transform: uppercase;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .td-num {
+                display: none;
+            }
+
+            .td-name {
+                margin-bottom: 8px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #E8F5E9;
+            }
+
+            .td-name::before {
+                display: none;
+            }
+
+            .td-name .code {
+                font-size: 16px;
+            }
+
+            .td-name .desc {
+                font-size: 13px;
+            }
+
+            .mobile-price-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin: 8px 0;
+            }
+
+            .td-price, .td-promo, .td-unit {
+                display: inline-block;
+                width: auto;
+                text-align: left;
+                background: transparent;
+            }
+
+            .td-price::before,
+            .td-promo::before,
+            .td-unit::before {
+                display: inline;
+                margin-right: 4px;
+            }
+
+            .mobile-buttons-row {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .td-youtube, .td-order {
+                display: inline-block;
+                width: auto;
+            }
+
+            .td-youtube::before,
+            .td-order::before {
+                display: none;
+            }
+
+            .order-btn {
+                flex: 1;
+                text-align: center;
+                padding: 12px;
+                font-size: 14px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .yt-btn {
+                min-width: 44px;
+            }
+
+            .footer {
+                padding: 20px 10px;
+            }
+
+            .footer h3 {
+                font-size: 16px;
+            }
+
+            .footer p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 L-TEX</h1>
+        <p>Секонд-хенд та Сток з Європи | Оптова торгівля</p>
+        <div class="contacts">
+            📲 <a href="tel:+380676710516">+380 67 671 05 16</a> | 📲 <a href="tel:+380993584992">+380 99 358 49 92</a>
+        </div>
+        <p>📍 м. Луцьк, Волинська область, Україна</p>
+    </div>
+
+    <div class="category">
+        <h2>Одяг мікс</h2>
+        <p>38 позицій | Футболки, Світшоти, Плаття</p>
+        <div class="stats">
+            <div class="stat-item">👕 Футболки: <strong>25</strong></div>
+            <div class="stat-item">🧥 Світшоти/Худі: <strong>12</strong></div>
+            <div class="stat-item">👗 Плаття: <strong>1</strong></div>
+            <div class="stat-item">🔥 Акцій: <strong>7</strong></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Найменування</th>
+                    <th>Ціна EUR</th>
+                    <th>Акція</th>
+                    <th>Од. виміру</th>
+                    <th>YouTube</th>
+                    <th>Замовити відео</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="" class="td-num">1</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">90251</span>
+                        <span class="desc">Футболки мікс літо 1й сорт (0214))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">4,70</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEnP-8J6bwzJH4Uz81YSGKn" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=90251%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280214%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">2</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">90252</span>
+                        <span class="desc">Футболки мікс літо 1й сорт (1163))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">4,95</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEm5jBXK4jkw4sjgr4XA_Mo" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=90252%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281163%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">3</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">86501</span>
+                        <span class="desc">Футболки мікс літо Екстра (0462) )</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGb4Kz_ZhRkMJDr8GF92Dvf" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=86501%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%280462%29%20%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">4</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">T-Shirt Root Apparel</span>
+                        <span class="desc">Футболки мікс сірі базові root apparel (1728))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHwjwpDdD76t7P4kUCebh4V" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=T-Shirt%20Root%20Apparel%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D1%81%D1%96%D1%80%D1%96%20%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D1%96%20root%20apparel%20%281728%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">5</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">L.MIX T-Shirt M</span>
+                        <span class="desc">Футболки чоловічі літо Livergy, Crivit Сток (0761))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>15,90</s></td>
+                    <td data-label="Акція" class="td-promo">14,50</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHhUq1SGZgX1aiWfI48mDYM" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=L.MIX%20T-Shirt%20M%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%BB%D1%96%D1%82%D0%BE%20Livergy%2C%20Crivit%20%D0%A1%D1%82%D0%BE%D0%BA%20%280761%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">6</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">86502</span>
+                        <span class="desc">Футболки мікс літо Екстра Німеччина D (0454))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFxy7aYE8Qo-CA2ENFKZ2vB" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=86502%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0%20D%20%280454%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">7</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">L.MIX T-Shirt MIX</span>
+                        <span class="desc">Футболки мікс літо Esmara,Livergy Сток (0847) )</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>14,50</s></td>
+                    <td data-label="Акція" class="td-promo">13,90</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHdakEwwr8scm-Ugd59tLav" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=L.MIX%20T-Shirt%20MIX%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20Esmara%2CLivergy%20%D0%A1%D1%82%D0%BE%D0%BA%20%280847%29%20%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">8</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">MEN T-Shirts S\S XXL</span>
+                        <span class="desc">Футболки чоловічі літо 1й + Екстра Канада (1384))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">7,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHu7hzH6vIDNrVs4AlRIe-9" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=MEN%20T-Shirts%20S%5CS%20XXL%20%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%BB%D1%96%D1%82%D0%BE%201%D0%B9%20%2B%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0%20%281384%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">9</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">MEN T-SHIRT R/N</span>
+                        <span class="desc">Футболки з принтом чоловічі літо Екстра Канада (1063))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,30</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEkzYWm1lLKblkaP3HVhHVg" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=MEN%20T-SHIRT%20R/N%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%B7%20%D0%BF%D1%80%D0%B8%D0%BD%D1%82%D0%BE%D0%BC%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%BB%D1%96%D1%82%D0%BE%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0%20%281063%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">10</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">T-SHIRT ALTITUDINE</span>
+                        <span class="desc">Футболки чоловічі літо Altitudine Сток (0752))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">19,00</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEv0Cav5rC3wy-fq19TthJ4" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=T-SHIRT%20ALTITUDINE%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%BB%D1%96%D1%82%D0%BE%20Altitudine%20%D0%A1%D1%82%D0%BE%D0%BA%20%280752%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">11</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">T-SHIRT FL</span>
+                        <span class="desc">Футболки нові мікс літо FL Сток (0751) )</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHqhRrxRiGkaq-PKL3Rqa6-" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=T-SHIRT%20FL%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BD%D0%BE%D0%B2%D1%96%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20FL%20%D0%A1%D1%82%D0%BE%D0%BA%20%280751%29%20%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">12</td>
+                    <td data-label="" class="td-name">
+                        <span class="code"></span>
+                        <span class="desc">G) T-Shirt Mix (U) Extra (Футболки мікс літо Екстра (0754))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>8,70</s></td>
+                    <td data-label="Акція" class="td-promo">7,40</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHHXSkLj_baveVVS_CG9-o3" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=%28G%29%20T-Shirt%20Mix%20%28U%29%20Extra%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%280754%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">13</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">LTSH</span>
+                        <span class="desc">Футболки жіночі 1й сорт (1478))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">4,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEG78ifz4tS6C1-OozR1bJP" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=LTSH%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281478%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">14</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">LADIES T-SHIRT PLUS</span>
+                        <span class="desc">Футболки жіночі великих розмірів літо XXL 1й сорт (1659))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGOqnWVPADDl2zjBS1ZcqWo" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=LADIES%20T-SHIRT%20PLUS%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%20%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D0%B8%D1%85%20%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%80%D1%96%D0%B2%20%D0%BB%D1%96%D1%82%D0%BE%20XXL%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281659%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">15</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">S1-Mixed T-shirts No.2</span>
+                        <span class="desc">Футболки мікс чоловічі та жіночі 1й сорт (1634))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">4,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGh9RkFvUZuNwUEti7A-h_-" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=S1-Mixed%20T-shirts%20No.2%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D1%82%D0%B0%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281634%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">16</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">64072</span>
+                        <span class="desc">Футболки мікс літо 1й сорт XXL (0277))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">6,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHYQK9tylTYZ805OmgwOcKq" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=64072%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20XXL%20%280277%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">17</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">82991</span>
+                        <span class="desc">Футболки на довгий рукав жіночі демісезон Екстра (0147))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEyVIhe3m_1xuVqcvt9fOVv" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=82991%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%B2%D0%B3%D0%B8%D0%B9%20%D1%80%D1%83%D0%BA%D0%B0%D0%B2%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%280147%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">18</td>
+                    <td data-label="" class="td-name">
+                        <span class="code"></span>
+                        <span class="desc">Y) EX T-Shirt Mix (Футболки мікс літо Екстра (1423))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,70</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHH1abP0-mPh3UKe8Pl9BGy" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=%28Y%29%20EX%20T-Shirt%20Mix%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%281423%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">19</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">900810870 Ladies T-Shirts</span>
+                        <span class="desc">Футболки жіночі 1й сорт літо (1179))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">4,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGURfuyVQqSpmT2hfZXypf_" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=900810870%20Ladies%20T-Shirts%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%D0%BB%D1%96%D1%82%D0%BE%20%281179%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">20</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">L.MIX T-Shirt W</span>
+                        <span class="desc">Футболки жіночі літо Esmara, Crivit Сток (1056) )</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">14,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEOifRClFT7E-3ZyRSap7ki" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=L.MIX%20T-Shirt%20W%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%B6%D1%96%D0%BD%D0%BE%D1%87%D1%96%20%D0%BB%D1%96%D1%82%D0%BE%20Esmara%2C%20Crivit%20%D0%A1%D1%82%D0%BE%D0%BA%20%281056%29%20%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">21</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">MEN MIX POLO LS</span>
+                        <span class="desc">Футболки на довий рукав чоловічі демісезон 1й сорт+ Екстра (1734))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFqqGfLKrXdRZR_hBNZs3jc" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=MEN%20MIX%20POLO%20LS%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%B2%D0%B8%D0%B9%20%D1%80%D1%83%D0%BA%D0%B0%D0%B2%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%2B%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%281734%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">22</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">91142</span>
+                        <span class="desc">Футболки нейлон мікс літо Екстра (1202))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">6,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGSph6oM6clcUM8siLLgMAs" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=91142%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BD%D0%B5%D0%B9%D0%BB%D0%BE%D0%BD%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%281202%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">23</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">TSH - F</span>
+                        <span class="desc">Футболки мікс Екстра  (1627))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">8,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFeNRd2V3cvt1PAa94538_M" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=TSH%20-%20F%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%20%281627%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">24</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">81132</span>
+                        <span class="desc">Футболки на довий рукав чоловічі демісезон Крем (0648))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">9,20</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHqADHop-42CevruxCmQyMD" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=81132%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%B2%D0%B8%D0%B9%20%D1%80%D1%83%D0%BA%D0%B0%D0%B2%20%D1%87%D0%BE%D0%BB%D0%BE%D0%B2%D1%96%D1%87%D1%96%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%9A%D1%80%D0%B5%D0%BC%20%280648%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">25</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">64035</span>
+                        <span class="desc">Футболки білі мікс літо 2й сорт (0699))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>3,90</s></td>
+                    <td data-label="Акція" class="td-promo">3,50</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pG1_tKNAhcD0sY-BH4SgMkT" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=64035%20%28%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%B1%D1%96%D0%BB%D1%96%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%BB%D1%96%D1%82%D0%BE%202%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280699%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">26</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">Sweatshirt INDEPENDENP</span>
+                        <span class="desc">Світшоти, худі, кофти з капюшоном сток INDEPENDENT (1570) )</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">12,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGtl6Xc4DwP1NT9y55b21dm" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=Sweatshirt%20INDEPENDENP%20%20%28%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%2C%20%D1%85%D1%83%D0%B4%D1%96%2C%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%20%D1%81%D1%82%D0%BE%D0%BA%20INDEPENDENT%20%281570%29%20%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">27</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">Sweatshirts Mix R</span>
+                        <span class="desc">Світшоти мікс демісезон 1й сорт (0573))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">4,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFiQDf-xy7E1u9wWMp2uAKf" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=Sweatshirts%20Mix%20R%20%28%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%280573%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">28</td>
+                    <td data-label="" class="td-name">
+                        <span class="code"></span>
+                        <span class="desc">Y) Sweatshirt BLUE 84 (Світшоти,худі,кофти з капюшоном мікс демісезон Сток + Крем BLUE  84 (1441))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">7,20</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGyw63nBVneKze8nG0Vp9Ae" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=%28Y%29%20Sweatshirt%20BLUE%2084%20%28%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%2C%D1%85%D1%83%D0%B4%D1%96%2C%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%A1%D1%82%D0%BE%D0%BA%20%2B%20%D0%9A%D1%80%D0%B5%D0%BC%20BLUE%20%2084%20%281441%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">29</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">W1-SWTSH Mix B</span>
+                        <span class="desc">Кофти з капюшоном, світшоти мікс 1й сорт (1807))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">2,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGLzPRmzaKyRzZQZa4z-Fd2" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=W1-SWTSH%20Mix%20B%20%28%D0%9A%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%2C%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281807%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">30</td>
+                    <td data-label="" class="td-name">
+                        <span class="code"></span>
+                        <span class="desc">Y) SWEATSHIRT EX (Кофти з капюшоном, світшоти мікс демісезон Екстра (1392))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>9,20</s></td>
+                    <td data-label="Акція" class="td-promo">8,30</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFyGvMPXvEN1AG2y35r8ZMG" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=%28Y%29%20SWEATSHIRT%20EX%20%28%D0%9A%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%2C%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%20%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%281392%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">31</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">SPORT MIX TT UK</span>
+                        <span class="desc">Спорт мікс - штани, кофти, світшоти 1й сорт+Екстра Англія TT (1742))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,20</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pHW1VRu2jKCWQJyXvwOFb_a" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=SPORT%20MIX%20TT%20UK%20%28%D0%A1%D0%BF%D0%BE%D1%80%D1%82%20%D0%BC%D1%96%D0%BA%D1%81%20-%20%D1%88%D1%82%D0%B0%D0%BD%D0%B8%2C%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%2C%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%2B%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%D0%90%D0%BD%D0%B3%D0%BB%D1%96%D1%8F%20TT%20%281742%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">32</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">CHILD. SPORT MIX TT UK</span>
+                        <span class="desc">Дитячий cпорт мікс  - штани, кофти, світшоти 1й сорт+Екстра Англія TT (1743))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFB-U8td1fHJgOrD4oCU0ri" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=CHILD.%20SPORT%20MIX%20TT%20UK%20%28%D0%94%D0%B8%D1%82%D1%8F%D1%87%D0%B8%D0%B9%20c%D0%BF%D0%BE%D1%80%D1%82%20%D0%BC%D1%96%D0%BA%D1%81%20%20-%20%D1%88%D1%82%D0%B0%D0%BD%D0%B8%2C%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%2C%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%2B%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%D0%90%D0%BD%D0%B3%D0%BB%D1%96%D1%8F%20TT%20%281743%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">33</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">UK Sweatshirts B</span>
+                        <span class="desc">Кофти з капюшоном, світшоти мікс 1й сорт UK (1822))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">2,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pE3re_pir7BeClPh301c36p" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=UK%20Sweatshirts%20B%20%28%D0%9A%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%2C%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20UK%20%281822%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">34</td>
+                    <td data-label="" class="td-name">
+                        <span class="code"></span>
+                        <span class="desc">B) Sweatshirt I (Світшоти, кофти з капюшоном мікс демісезон 1й сорт (1081) )</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>3,20</s></td>
+                    <td data-label="Акція" class="td-promo">1,80</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEIWA1WzTy0e120YUna3XeS" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=%28B%29%20Sweatshirt%20I%20%28%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%2C%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281081%29%20%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">35</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">SWEAT TOP HOODED</span>
+                        <span class="desc">XXL) (Світшоти, кофти з капюшоном мікс демісезон 1й сорт XXL Канада  (0669))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">6,90</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><span class="no-link">—</span></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=SWEAT%20TOP%20HOODED%20%28XXL%29%20%28%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%2C%20%D0%BA%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20XXL%20%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0%20%20%280669%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">36</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">SWEATSHIRT PLAIN</span>
+                        <span class="desc">Світшоти мікс без принта 1й сорт+Екстра  Канада (1873))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pGdLvD410xOuYou2IBXDPrH" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=SWEATSHIRT%20PLAIN%20%20%28%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D1%80%D0%B8%D0%BD%D1%82%D0%B0%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%2B%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%20%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0%20%281873%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">37</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">34513</span>
+                        <span class="desc">Кофти з капюшоном, світшоти мікс демісезон 2й сорт (1024))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price"><s>3,90</s></td>
+                    <td data-label="Акція" class="td-promo">2,80</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pEtZidh2gXr2mW0DBg3QGji" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=34513%20%28%D0%9A%D0%BE%D1%84%D1%82%D0%B8%20%D0%B7%20%D0%BA%D0%B0%D0%BF%D1%8E%D1%88%D0%BE%D0%BD%D0%BE%D0%BC%2C%20%D1%81%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%20%D0%B4%D0%B5%D0%BC%D1%96%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%202%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%20%281024%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="" class="td-num">38</td>
+                    <td data-label="" class="td-name">
+                        <span class="code">DSS- F</span>
+                        <span class="desc">Плаття, сукні, сарафани мікс 1й сорт+Екстра (1653))</span>
+                    </td>
+                    <td data-label="Ціна" class="td-price">5,50</td>
+                    <td data-label="Акція" class="td-promo">—</td>
+                    <td data-label="Од. виміру" class="td-unit">€/кг</td>
+                    <td data-label="YouTube" class="td-youtube"><a href="https://www.youtube.com/playlist?list=PL6gwWuwZT8pFb_vcNLl2xqvtTuxpE8f_A" target="_blank" class="yt-btn" title="Дивитись відео-огляд">▶️</a></td>
+                    <td data-label="" class="td-order">
+                        <a href="order-video.html?product=DSS-%20F%20%28%D0%9F%D0%BB%D0%B0%D1%82%D1%82%D1%8F%2C%20%D1%81%D1%83%D0%BA%D0%BD%D1%96%2C%20%D1%81%D0%B0%D1%80%D0%B0%D1%84%D0%B0%D0%BD%D0%B8%20%D0%BC%D1%96%D0%BA%D1%81%201%D0%B9%20%D1%81%D0%BE%D1%80%D1%82%2B%D0%95%D0%BA%D1%81%D1%82%D1%80%D0%B0%20%281653%29%29" class="order-btn">🎥 Замовити</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <h3>📞 Контакти L-TEX</h3>
+        <p>📲 Телефони: <a href="tel:+380676710516">+380 67 671 05 16</a>, <a href="tel:+380993584992">+380 99 358 49 92</a></p>
+        <p class="email">📧 Email: <a href="mailto:ltex.lutsk.ai@gmail.com">ltex.lutsk.ai@gmail.com</a></p>
+        <p>📍 Адреса: м. Луцьк, Волинська область, Україна</p>
+        <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">🟢 Секонд-хенд та Сток з Європи | Оптова торгівля</p>
+    </div>
+
+    <script>
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('tbody tr').forEach(row => {
+                const price = row.querySelector('.td-price');
+                const promo = row.querySelector('.td-promo');
+                const unit = row.querySelector('.td-unit');
+                
+                if (price && promo && unit) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'mobile-price-row';
+                    price.parentNode.insertBefore(wrapper, price);
+                    wrapper.appendChild(price);
+                    wrapper.appendChild(promo);
+                    wrapper.appendChild(unit);
+                }
+
+                const youtube = row.querySelector('.td-youtube');
+                const order = row.querySelector('.td-order');
+                
+                if (youtube && order) {
+                    const btnWrapper = document.createElement('div');
+                    btnWrapper.className = 'mobile-buttons-row';
+                    youtube.parentNode.insertBefore(btnWrapper, youtube);
+                    btnWrapper.appendChild(youtube);
+                    btnWrapper.appendChild(order);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

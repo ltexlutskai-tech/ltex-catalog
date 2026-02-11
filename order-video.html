@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замовити відео-огляд | L-TEX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* === ШАПКА === */
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* === КОНТЕЙНЕР ФОРМИ === */
+        .form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            padding: 32px;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-card h2 {
+            font-size: 24px;
+            color: #2E7D32;
+            margin-bottom: 8px;
+        }
+
+        .form-card .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        /* === ПОЛЯ ФОРМИ === */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .form-group label .required {
+            color: #E65100;
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        .form-group input[readonly] {
+            background: #F5F5F5;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* === КНОПКА === */
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #E65100 0%, #F57C00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 111, 0, 0.4);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            background: #BDBDBD;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* === ПОВІДОМЛЕННЯ УСПІХУ === */
+        .success-message {
+            display: none;
+            background: #E8F5E9;
+            border: 2px solid #4CAF50;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message .icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .success-message h3 {
+            font-size: 22px;
+            color: #2E7D32;
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-back:hover {
+            background: #388E3C;
+            transform: translateY(-1px);
+        }
+
+        /* === ФУТЕР === */
+        .footer {
+            background: #1B5E20;
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* === МОБІЛЬНА ВЕРСІЯ === */
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 10px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .form-container {
+                margin: 20px auto;
+                padding: 0 10px;
+            }
+
+            .form-card {
+                padding: 20px;
+            }
+
+            .form-card h2 {
+                font-size: 20px;
+            }
+
+            .btn-submit {
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            .success-message .icon {
+                font-size: 36px;
+            }
+
+            .success-message h3 {
+                font-size: 18px;
+            }
+
+            .footer {
+                padding: 16px 10px;
+            }
+
+            .footer p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА -->
+    <div class="header">
+        <h1>🎥 Замовлення відео-огляду</h1>
+        <p>L-TEX | Секонд-хенд та Сток з Європи</p>
+    </div>
+
+    <!-- ФОРМА -->
+    <div class="form-container">
+        <div class="form-card" id="formCard">
+            <h2>Замовити відео-огляд товару</h2>
+            <p class="subtitle">Ми зробимо відео-огляд рандомного мішка обраної позиції і надішлемо вам</p>
+
+            <form id="orderForm" action="https://formsubmit.co/ltex.lutsk.ai@gmail.com" method="POST">
+                <!-- Службові поля FormSubmit -->
+                <input type="hidden" name="_subject" value="🎥 Замовлення відео-огляду | L-TEX">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_autoresponse" value="">
+                <input type="text" name="_honey" style="display:none">
+
+                <!-- Товар (readonly) -->
+                <div class="form-group">
+                    <label for="product">Товар</label>
+                    <input type="text" id="product" name="Товар" readonly required>
+                </div>
+
+                <!-- Ім'я -->
+                <div class="form-group">
+                    <label for="name">Ваше ім'я <span class="required">*</span></label>
+                    <input type="text" id="name" name="Ім'я" placeholder="Введіть ваше ім'я" required>
+                </div>
+
+                <!-- Телефон -->
+                <div class="form-group">
+                    <label for="phone">Телефон <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="Телефон" placeholder="+380 XX XXX XX XX" required>
+                </div>
+
+                <!-- Місто -->
+                <div class="form-group">
+                    <label for="city">Місто / Регіон <span class="required">*</span></label>
+                    <input type="text" id="city" name="Місто" placeholder="Наприклад: Київ, Львів, Одеса" required>
+                </div>
+
+                <!-- Коментар -->
+                <div class="form-group">
+                    <label for="comment">Коментар (необов'язково)</label>
+                    <textarea id="comment" name="Коментар" placeholder="Додаткові побажання чи питання..."></textarea>
+                </div>
+
+                <!-- Кнопка відправки -->
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    🎥 Замовити відео-огляд
+                </button>
+            </form>
+        </div>
+
+        <!-- ПОВІДОМЛЕННЯ УСПІХУ -->
+        <div class="success-message" id="successMessage">
+            <div class="icon">✅</div>
+            <h3>Замовлення прийнято!</h3>
+            <p>Дякуємо! Ми отримали ваше замовлення і зв'яжемося з вами найближчим часом.</p>
+            <a href="javascript:history.back()" class="btn-back">⬅️ Повернутися до каталогу</a>
+        </div>
+    </div>
+
+    <!-- ФУТЕР -->
+    <div class="footer">
+        <p>📲 <a href="tel:+380676710516">+380 67 671 05 16</a> | <a href="tel:+380993584992">+380 99 358 49 92</a></p>
+        <p>📧 <a href="mailto:ltex.lutsk.ai@gmail.com">ltex.lutsk.ai@gmail.com</a></p>
+        <p>📍 м. Луцьк, Волинська область, Україна</p>
+    </div>
+
+    <script>
+        // Автозаповнення товару з URL параметра
+        const urlParams = new URLSearchParams(window.location.search);
+        const productParam = urlParams.get('product');
+        
+        if (productParam) {
+            document.getElementById('product').value = decodeURIComponent(productParam);
+        }
+
+        // AJAX відправка форми
+        const form = document.getElementById('orderForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formCard = document.getElementById('formCard');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Блокуємо кнопку
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Відправляємо...';
+
+            // Відправка через Fetch API
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Успішна відправка
+                    formCard.style.display = 'none';
+                    successMessage.classList.add('show');
+                } else {
+                    throw new Error('Помилка відправки');
+                }
+            })
+            .catch(error => {
+                // Помилка
+                alert('Помилка при відправці форми. Спробуйте ще раз або зв\'яжіться з нами за телефоном.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🎥 Замовити відео-огляд';
+            });
+        });
+    </script>
+</body>
+</html>
